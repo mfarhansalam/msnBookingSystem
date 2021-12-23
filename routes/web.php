@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/profile', function () {
+    return view('profile');
+});
+
 Route::get('/member/login', [MemberController::class, 'login']) ;
 
 Route::get('/member/register', [MemberController::class, 'register']) ;
@@ -26,3 +30,7 @@ Route::get('/member/index', [MemberController::class, 'index']) ;
 Route::get('/member/profile', [MemberController::class, 'profile']) ;
 
 
+
+Route::view('dashboard', 'dashboard')
+	->name('dashboard')
+	->middleware(['auth', 'verified']);
