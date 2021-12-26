@@ -1,4 +1,4 @@
-@extends('member.login')
+@extends('template.login')
 
 @section('content')
     @if (session('status'))

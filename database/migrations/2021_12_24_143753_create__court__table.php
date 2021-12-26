@@ -13,7 +13,7 @@ class CreateCourtTable extends Migration
      */
     public function up()
     {
-        Schema::create('_court_', function (Blueprint $table) {
+        Schema::create('court', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->float('price');
@@ -28,6 +28,6 @@ class CreateCourtTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_court_');
+        Schema::dropIfExists('court');
     }
 }

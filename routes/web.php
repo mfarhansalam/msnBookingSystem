@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourtController;
 use App\Http\Controllers\MemberController;
 
 /*
@@ -26,11 +27,10 @@ Route::get('/member/login', [MemberController::class, 'login']) ;
 
 Route::get('/member/register', [MemberController::class, 'register']) ;
 
-Route::get('/member/index', [MemberController::class, 'index']) ;
-Route::get('/member/profile', [MemberController::class, 'profile']) ;
 
 
+Route::get('/dashboard', [CourtController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
-Route::view('dashboard', 'dashboard')
-	->name('dashboard')
-	->middleware(['auth', 'verified']);
+/*Route::view('dashboard', 'dashboard')
+    ->name('dashboard')
+    ->middleware(['auth', 'verified']);*/

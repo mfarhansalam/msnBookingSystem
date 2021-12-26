@@ -1,4 +1,4 @@
-@extends('member.register')
+@extends('template.register')
 
 @section('content')
     @if ($errors->any())

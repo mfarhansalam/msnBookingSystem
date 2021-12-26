@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Court;
 use Illuminate\Http\Request;
 
 class CourtController extends Controller
@@ -13,7 +14,9 @@ class CourtController extends Controller
      */
     public function index()
     {
-        //
+        $courts = Court::all();
+
+        return view('dashboard',[ 'courts' => $courts ]);
     }
 
     /**
@@ -23,7 +26,7 @@ class CourtController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookingTable extends Migration
+class CreateCourtUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateBookingTable extends Migration
      */
     public function up()
     {
-        Schema::create('booking', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 15);
-            $table->string('title', 100);
-            $table->timestamp('start_time');
-            $table->timestamp('end_time')->nullable();
+        Schema::create('court_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('court_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateBookingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('booking');
+        Schema::dropIfExists('court_user');
     }
 }

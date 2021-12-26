@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Court;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-    public function index(){
-        return view('member.index');
-    }
-
-    public function profile(){
-        return view('member.profile');
-    }
+   
 
     public function login(){
         return view('member.login');
