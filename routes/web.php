@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/status', function () {
+    return view('status');
+});
+
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -27,9 +31,11 @@ Route::get('/member/login', [MemberController::class, 'login']) ;
 
 Route::get('/member/register', [MemberController::class, 'register']) ;
 
-
+Route::resource('/',CourtController::class);
 
 Route::get('/dashboard', [CourtController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
+
+
 
 /*Route::view('dashboard', 'dashboard')
     ->name('dashboard')

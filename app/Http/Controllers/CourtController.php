@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Court;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class CourtController extends Controller
@@ -37,7 +38,18 @@ class CourtController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'courtname' => 'required',
+            'email'=> 'required',
+            'datebook'=>'required',
+            'time_start'=>'required',
+            'time_stop'=>'required',
+            'duration'=>'required',
+        ]);
+
+        $book=Booking::create($data);
+
+        return redirect('dashboard')->with('success'," telah berjaya disimpan.");
     }
 
     /**
